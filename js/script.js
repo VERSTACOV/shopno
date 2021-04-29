@@ -1,2 +1,48 @@
-"use strict";function ibg(){$.each($(".ibg"),function(e,s){0<$(this).find("img").length&&$(this).css("background-image",'url("'+$(this).find("img").attr("src")+'")')})}$(document).ready(function(){$(".header__burger").click(function(e){$(".header__burger,.header__menu").toggleClass("active"),$("body").toggleClass("lock")})}),ibg(),$(document).ready(function(){$(".sliderbig").slick({arrows:!1,dots:!0,fade:!0,slidesToShow:1,slidesToScroll:1,speed:1e3,autoplay:!0,autoplaySpeed:1500,infinite:!0}),$(".slider").slick({arrows:!1,dots:!0,adaptiveHeight:!0,slidesToShow:2,slidesToScroll:2,speed:1e3,easing:"ease",infinite:!0,initialSlide:0,autoplay:!1,autoplaySpeed:300,pauseOnFocus:!0,pauseOnHover:!0,pauseOnDotsHover:!0,draggable:!0,swipe:!0,touchThreshold:5,touchMove:!0,waitForAnimate:!1,centerMode:!1,variableWidth:!1,rows:1,slidesPerRow:1,vertical:!1,verticalSwiping:!1,responsive:[{breakpoint:768,settings:{slidesToShow:1,arrows:!1}}]}),$(".sliderauthor").slick({arrows:!1,dots:!0,adaptiveHeight:!0,slidesToShow:1,slidesToScroll:1,centerMode:!1,asNavFor:".slidersay"}),$(".slidersay").slick({asNavFor:".sliderauthor",responsive:[{breakpoint:768,settings:{arrows:!1}}]})});
-//# sourceMappingURL=script.js.map
+'use strict'
+function ibg(){
+	let ibg=document.querySelectorAll(".ibg");
+	for (var i = 0; i < ibg.length; i++) {
+	if(ibg[i].querySelector('img')){
+		ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+		}
+	}
+}
+
+ibg();
+
+const iconMenu = document.querySelector('.header__icon');
+const menuBody = document.querySelector('.menu');
+if (iconMenu) {
+	iconMenu.addEventListener('click', function(e) {
+		document.body.classList.toggle('lock');
+		iconMenu.classList.toggle('active');
+		menuBody.classList.toggle('active');
+	});
+}
+
+const menuLinks = document.querySelectorAll('.header__link[data-goto]');
+if (menuLinks.length > 0) {
+	menuLinks.forEach(menuLink => {
+		menuLink.addEventListener('click', onMenuLinkClick);
+	});
+	function onMenuLinkClick(e) {
+		const menuLink = e.target;
+		if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+			const gotoBlock = document.querySelector(menuLink.dataset.goto); //получаем в константу этот объект
+			//выщитать положение этого объекта с учетом высоты шапки
+			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight; //создаем константу gotoBlockValue и с помощью встроенной функции getBoundingClientRect() точка топ, потому что хочу получить растояние от верха этого объекта.Яполучаю его место положение  на странице в пикселях, так же я добавляю количество прокрученых пикселей для этого используем pageYOffset (y-вертикаль) и отнимаем высоту шапки.
+
+			if (iconMenu.classList.contains('active')) {
+				document.body.classList.remove('lock');
+				iconMenu.classList.remove('active');
+				menuBody.classList.remove('active');
+			}
+
+			window.scrollTo({
+				top: gotoBlockValue,
+				behavior: "smooth"
+			});
+			e.preventDefault();
+		}
+	}
+}
