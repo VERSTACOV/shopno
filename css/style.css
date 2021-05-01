@@ -419,8 +419,14 @@ body.lock {
 .menu__input-search {
   position: absolute;
   right: 35px;
-  bottom: 10px;
+  bottom: 10%;
   z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .menu__input-search {
+    bottom: 13%;
+  }
 }
 
 .menu__icon {
@@ -464,9 +470,6 @@ body.lock {
   }
   .menu__list li {
     margin: 0px 0px 30px 0px;
-  }
-  .menu__list li:hover {
-    display: none;
   }
   .menu__link {
     margin: 0px;
