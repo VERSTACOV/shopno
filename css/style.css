@@ -419,14 +419,9 @@ body.lock {
 .menu__input-search {
   position: absolute;
   right: 35px;
-  bottom: 10%;
+  bottom: 0;
   z-index: 1;
-}
-
-@media (max-width: 767px) {
-  .menu__input-search {
-    bottom: 13%;
-  }
+  padding: 10px 0px;
 }
 
 .menu__icon {
