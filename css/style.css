@@ -441,7 +441,7 @@ body.lock {
     justify-content: flex-end;
     flex-direction: column-reverse;
     text-align: center;
-    background-color: rgba(242, 239, 234, 0.7);
+    background-color: rgba(242, 239, 234, 0.8);
     padding: 100px 0px 0px 0px;
     transform: translate(0px, -120%);
     transition: 0.3s;
