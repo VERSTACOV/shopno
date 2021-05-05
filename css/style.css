@@ -161,8 +161,10 @@ body.lock {
   color: #776c64;
 }
 
-.btn:hover {
-  background-color: #DEB37E;
+@media (min-width: 991px) {
+  .btn:hover {
+    background-color: #DEB37E;
+  }
 }
 
 /* .first-screan__text */
@@ -867,6 +869,13 @@ body.lock {
   border-radius: 40px;
   margin: 0 auto;
   padding: 27px 0px;
+  transition: 0.3s;
+}
+
+@media (min-width: 991px) {
+  .lets__button:hover {
+    background-color: #E2A355;
+  }
 }
 
 .lets__button a {
@@ -1040,6 +1049,10 @@ body.lock {
   }
 }
 
+.block-one__button {
+  transition: 0.3s;
+}
+
 @media (max-width: 991px) {
   .block-one__button {
     width: 250px;
@@ -1051,6 +1064,12 @@ body.lock {
 @media (max-width: 767px) {
   .block-one__button {
     align-self: center;
+  }
+}
+
+@media (min-width: 991px) {
+  .block-one__button:hover {
+    background-color: #B1A086;
   }
 }
 
@@ -1141,6 +1160,10 @@ body.lock {
   }
 }
 
+.block-two__button {
+  transition: 0.3s;
+}
+
 .block-two__button a {
   font-size: calc(20.2px + 3 * ((100vw - 767px) / (1440 - 767)));
 }
@@ -1156,6 +1179,12 @@ body.lock {
 @media (max-width: 767px) {
   .block-two__button {
     align-self: center;
+  }
+}
+
+@media (min-width: 991px) {
+  .block-two__button:hover {
+    background-color: #B1A086;
   }
 }
 
