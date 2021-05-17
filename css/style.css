@@ -471,10 +471,10 @@ body.lock {
   color: #aaa;
   font-size: 24px;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 30px;
+  top: 50%;
+  transform: translate(0px, -50%);
   z-index: 0;
-  padding: 10px 30px 10px 0px;
 }
 
 .footer {
@@ -840,6 +840,15 @@ body.lock {
     flex-direction: column;
     max-height: none;
     max-width: 539px;
+  }
+}
+
+@media (min-width: 991px) {
+  .lets__column {
+    transition: 0.3s;
+  }
+  .lets__column:hover {
+    transform: translate(0px, -5px);
   }
 }
 
